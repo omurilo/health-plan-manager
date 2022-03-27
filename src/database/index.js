@@ -26,16 +26,22 @@ export default class Database {
 
   find(query) {
     const result = [];
+
+    if (!query) {
+      return Object.fromEntries(this.instance.entries());
+    }
+
     Reflect.ownKeys(query).forEach(key => {
       if (query[key].$in) {
+        const newQuery = query[key].$in.map(value => String(value).toLowerCase());
         this.instance.forEach(item => {
-          if (query[key].$in.includes(item[key])) {
+          if (newQuery.includes(String(item[key]).toLowerCase())) {
             result.push(item);
           }
         });
       } else {
         this.instance.forEach(item => {
-          if (item[key] === query[key]) {
+          if (String(item[key]).toLowerCase() === String(query[key]).toLowerCase()) {
             result.push(item)
           }
         });
