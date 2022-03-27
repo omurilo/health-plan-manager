@@ -1,0 +1,102 @@
+[
+  [
+    "6cd50011-5525-4e74-ab7a-0b39acb0774d",
+    {
+      "id": "6cd50011-5525-4e74-ab7a-0b39acb0774d",
+      "name": "Dental Sorriso",
+      "code": "DS",
+      "description": "Plano Odontológico Dental Sorriso",
+      "schema": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "federalDocument": {
+          "type": "string",
+          "required": true
+        },
+        "weight": {
+          "type": "number",
+          "required": true
+        },
+        "height": {
+          "type": "number",
+          "required": true
+        }
+      }
+    }
+  ],
+  [
+    "102c482f-1a78-4a22-80fe-d6c346f2d22f",
+    {
+      "id": "102c482f-1a78-4a22-80fe-d6c346f2d22f",
+      "name": "Mente Sã, Corpo São",
+      "code": "MC",
+      "description": "Plano saúde mental Mente Sã, Corpo São",
+      "schema": {
+        "federalDocument": {
+          "type": "string",
+          "required": true
+        },
+        "timeSpendLastSevenDays": {
+          "type": "number",
+          "required": true
+        }
+      }
+    }
+  ],
+  [
+    "9d6b8e37-47e4-44ab-b604-1d7a96f3ac3e",
+    {
+      "id": "9d6b8e37-47e4-44ab-b604-1d7a96f3ac3e",
+      "name": "Norte Europa",
+      "code": "NE",
+      "description": "Plano Norte Europa",
+      "schema": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "federalDocument": {
+          "type": "string",
+          "required": true
+        },
+        "admissionDate": {
+          "type": "date",
+          "required": true
+        },
+        "email": {
+          "type": "string",
+          "required": true
+        }
+      }
+    }
+  ],
+  [
+    "222560f1-f7ca-47e0-828b-a430121c7cf8",
+    {
+      "id": "222560f1-f7ca-47e0-828b-a430121c7cf8",
+      "name": "Pampulha Intermédica",
+      "code": "PI",
+      "description": "Plano de saúde Pampulha Intermédica",
+      "schema": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "federalDocument": {
+          "type": "string",
+          "required": true
+        },
+        "admissionDate": {
+          "type": "date",
+          "required": true
+        },
+        "address": {
+          "type": "string",
+          "required": true
+        }
+      }
+    }
+  ]
+]
