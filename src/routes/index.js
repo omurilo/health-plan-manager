@@ -8,17 +8,18 @@ export default class Routes {
 
   async routes(request, response) {
     const { url: unparsedUrl, method } = request;
+    let url = null
     let query = null
-    let params = null
-    let result = null
+    let params = []
 
     if (unparsedUrl.includes('?')) {
       query = QueryString.parse(unparsedUrl.split('?')[1])
     }
 
     if (unparsedUrl.includes('/')) {
-      const [, url, ...rest] = unparsedUrl.split('/')
+      const [, parsedUrl, ...rest] = unparsedUrl.split('/')
       params = rest
+      url = parsedUrl
     }
 
     if (method === 'GET') {
@@ -31,10 +32,11 @@ export default class Routes {
         response.end();
       }
 
-      if (unparsedUrl.includes('/beneficiaries')) {
+      if (url === 'beneficiaries') {
         response.writeHead(200, { 'Content-Type': 'application/json' });
+        let result;
 
-        if (!params) {
+        if (!params.length) {
           result = await this.controllers.beneficiaries.find(query);
         } else {
           result = await this.controllers.beneficiaries.get(params[0]);
@@ -43,10 +45,11 @@ export default class Routes {
         return response.end(JSON.stringify(result));
       }
 
-      if (unparsedUrl.includes('/clients')) {
+      if (url === 'clients') {
         response.writeHead(200, { 'Content-Type': 'application/json' });
+        let result;
 
-        if (!params) {
+        if (!params.length) {
           result = await this.controllers.clients.find(query);
         } else {
           result = await this.controllers.clients.get(params[0]);
@@ -55,10 +58,11 @@ export default class Routes {
         return response.end(JSON.stringify(result));
       }
 
-      if (unparsedUrl.includes('/providers')) {
+      if (url === 'providers') {
         response.writeHead(200, { 'Content-Type': 'application/json' });
+        let result;
 
-        if (!params) {
+        if (!params.length) {
           result = await this.controllers.planProviders.find(query);
         } else {
           result = await this.controllers.planProviders.get(params[0]);
@@ -69,7 +73,7 @@ export default class Routes {
     }
 
     if (method === 'POST') {
-      if (unparsedUrl === '/beneficiaries') {
+      if (url === 'beneficiaries') {
         const body = await once(request, 'data')
         const data = JSON.parse(body);
 
@@ -78,7 +82,7 @@ export default class Routes {
         return response.end(JSON.stringify(result))
       }
 
-      if (unparsedUrl === '/clients') {
+      if (url === 'clients') {
         const body = await once(request, 'data')
         const data = JSON.parse(body);
 
@@ -87,7 +91,7 @@ export default class Routes {
         return response.end(JSON.stringify(result))
       }
 
-      if (unparsedUrl === '/providers') {
+      if (url === 'providers') {
         const body = await once(request, 'data')
         const data = JSON.parse(body);
 
