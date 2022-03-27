@@ -11,7 +11,7 @@
           "type": "string",
           "required": true
         },
-        "federalDocument": {
+        "document": {
           "type": "string",
           "required": true
         },
@@ -34,7 +34,7 @@
       "code": "MC",
       "description": "Plano saúde mental Mente Sã, Corpo São",
       "schema": {
-        "federalDocument": {
+        "document": {
           "type": "string",
           "required": true
         },
@@ -57,7 +57,7 @@
           "type": "string",
           "required": true
         },
-        "federalDocument": {
+        "document": {
           "type": "string",
           "required": true
         },
@@ -84,7 +84,7 @@
           "type": "string",
           "required": true
         },
-        "federalDocument": {
+        "document": {
           "type": "string",
           "required": true
         },
