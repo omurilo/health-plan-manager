@@ -45,14 +45,14 @@ export default class Routes {
         return response.end(JSON.stringify(result));
       }
 
-      if (url === 'clients') {
+      if (url === 'companies') {
         response.writeHead(200, { 'Content-Type': 'application/json' });
         let result;
 
         if (!params.length) {
-          result = await this.controllers.clients.find(query);
+          result = await this.controllers.companies.find(query);
         } else {
-          result = await this.controllers.clients.get(params[0]);
+          result = await this.controllers.companies.get(params[0]);
         }
 
         return response.end(JSON.stringify(result));
@@ -82,11 +82,11 @@ export default class Routes {
         return response.end(JSON.stringify(result))
       }
 
-      if (url === 'clients') {
+      if (url === 'companies') {
         const body = await once(request, 'data')
         const data = JSON.parse(body);
 
-        const result = this.controllers.clients.create(data);
+        const result = this.controllers.companies.create(data);
 
         return response.end(JSON.stringify(result))
       }

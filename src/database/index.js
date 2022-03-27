@@ -1,12 +1,12 @@
 import { randomUUID } from 'crypto'
 
-import ClientsDatabase from "./clients/index.js";
+import CompaniesDatabase from "./companies/index.js";
 import ProvidersDatabase from "./providers/index.js";
 import BeneficiariesDatabase from './beneficiaries/index.js';
 
 export default class Database {
   constructor({ entity }) {
-    this.db = new Map([['providers', new ProvidersDatabase()], ['clients', new ClientsDatabase()], ['beneficiaries', new BeneficiariesDatabase()]]);
+    this.db = new Map([['providers', new ProvidersDatabase()], ['companies', new CompaniesDatabase()], ['beneficiaries', new BeneficiariesDatabase()]]);
     this.instance = this.db.get(entity);
   }
 

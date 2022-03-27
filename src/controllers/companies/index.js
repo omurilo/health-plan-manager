@@ -1,4 +1,4 @@
-export default class ClientsController {
+export default class CompaniesController {
   constructor({ service }) {
     this.service = service
   }
