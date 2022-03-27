@@ -6,6 +6,6 @@ export default class Services {
   constructor() {
     this.clients = new ClientsService()
     this.planProviders = new PlanProvidersService()
-    this.beneficiaries = new BeneficiariesService({  client: this.clients, planProviders: this.planProviders });
+    this.beneficiaries = new BeneficiariesService({  clients: this.clients, planProviders: this.planProviders });
   }
 }
