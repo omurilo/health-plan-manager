@@ -14,9 +14,9 @@ export default class BeneficiariesService {
     let providers;
 
     if (plans) {
-      providers = this.planProviders.find({ code: { $in: plans } });
+      providers = this.planProviders.find({ id: { $in: plans } });
     } else {
-      providers = this.planProviders.find({ code: { $in: this.clients.get(data.company).providers } });
+      providers = this.planProviders.find({ id: { $in: this.clients.get(data.company).providers } });
     }
 
     return providers.map(provider => {
@@ -36,12 +36,10 @@ export default class BeneficiariesService {
   }
 
   get(id) {
-    const beneficiaries = this.client.get('').beneficiaries;
     return this.beneficiaries.get(id);
   }
 
   find(query) {
-    const beneficiaries = this.client.get('').beneficiaries;
     return this.beneficiaries.find(query);
   }
 }
