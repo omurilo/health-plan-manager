@@ -1,19 +1,17 @@
-import PlanProviders from '../../repositories/entities/providers/index.js'
-
 export default class PlanProvidersService {
-  constructor({ database }) {
-    this.providers = new PlanProviders({ database });
+  constructor({ repository }) {
+    this.repository = repository;
   }
 
   create(data) {
-    return this.providers.create(data);
+    return this.repository.create(data);
   }
 
   get(id) {
-    return this.providers.get(id);
+    return this.repository.get(id);
   }
 
   find(query) {
-    return this.providers.find(query);
+    return this.repository.find(query);
   }
 }

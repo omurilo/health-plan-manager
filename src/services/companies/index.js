@@ -1,19 +1,17 @@
-import CompaniesEntity from '../../repositories/entities/companies/index.js'
-
 export default class CompaniesService {
-  constructor({ database }) {
-    this.companies = new CompaniesEntity({ database });
+  constructor({ repository }) {
+    this.repository = repository;
   }
 
   create(data) {
-    return this.companies.create(data);
+    return this.repository.create(data);
   }
 
   get(id) {
-    return this.companies.get(id);
+    return this.repository.get(id);
   }
 
   find(query) {
-    return this.companies.find(query);
+    return this.repository.find(query);
   }
 }

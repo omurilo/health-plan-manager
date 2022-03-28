@@ -1,9 +1,8 @@
 import ProvidersDatabase from "../../database/providers/index.js";
-import BeneficiariesEntity from '../../repositories/entities/beneficiaries/index.js';
 
 export default class BeneficiariesService {
-  constructor({ planProviders, companies, database }) {
-    this.beneficiaries = new BeneficiariesEntity({ database });
+  constructor({ planProviders, companies, repository }) {
+    this.repository = repository;
     this.planProviders = planProviders;
     this.companies = companies;
   }
@@ -41,14 +40,14 @@ export default class BeneficiariesService {
       plans: beneficiaryPlans,
     }
 
-    return this.beneficiaries.createOrUpdate(beneficiary);
+    return this.repository.createOrUpdate(beneficiary);
   }
 
   get(id) {
-    return this.beneficiaries.get(id);
+    return this.repository.get(id);
   }
 
   find(query) {
-    return this.beneficiaries.find(query);
+    return this.repository.find(query);
   }
 }
