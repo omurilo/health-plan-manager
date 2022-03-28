@@ -1,5 +1,3 @@
-import ProvidersDatabase from "../../database/providers/index.js";
-
 export default class BeneficiariesService {
   constructor({ planProviders, companies, repository }) {
     this.repository = repository;
