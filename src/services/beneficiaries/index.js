@@ -14,8 +14,8 @@ export default class BeneficiariesService {
 
     if (plans) {
       const companyProviders = this.companies.get(data.company).providers;
-      const providersA = companyProviders.filter(provider => plans.includes(provider.plan));
-      providers = this.planProviders.find({ id: { $in: providersA } });
+      const availableProviders = companyProviders.filter(provider => plans.includes(provider));
+      providers = this.planProviders.find({ id: { $in: availableProviders } });
     } else {
       providers = this.planProviders.find({ id: { $in: this.companies.get(data.company).providers } });
     }

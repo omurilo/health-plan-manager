@@ -28,7 +28,7 @@ export default class Database {
     const result = [];
 
     if (!query) {
-      return Object.fromEntries(this.instance.entries());
+      return Array.from(this.instance.values());
     }
 
     Reflect.ownKeys(query).forEach(key => {
