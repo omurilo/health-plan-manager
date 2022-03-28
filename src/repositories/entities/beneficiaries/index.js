@@ -1,11 +1,9 @@
 import BaseEntity from "../base-entity.js";
 
-import Database from "../../../database/index.js";
-
 export default class Beneficiaries extends BaseEntity {
-  constructor() {
+  constructor({ database }) {
     super();
-    this.database = Database.getEntityDatabaseInstance('beneficiaries');
+    this.database = database.getEntityDatabaseInstance('beneficiaries');
   }
 
   createOrUpdate(data) {

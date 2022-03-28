@@ -1,10 +1,9 @@
 import ProvidersDatabase from "../../database/providers/index.js";
-
 import BeneficiariesEntity from '../../repositories/entities/beneficiaries/index.js';
 
 export default class BeneficiariesService {
-  constructor({ planProviders, companies }) {
-    this.beneficiaries = new BeneficiariesEntity();
+  constructor({ planProviders, companies, database }) {
+    this.beneficiaries = new BeneficiariesEntity({ database });
     this.planProviders = planProviders;
     this.companies = companies;
   }

@@ -1,8 +1,8 @@
 import CompaniesEntity from '../../repositories/entities/companies/index.js'
 
 export default class CompaniesService {
-  constructor() {
-    this.companies = new CompaniesEntity();
+  constructor({ database }) {
+    this.companies = new CompaniesEntity({ database });
   }
 
   create(data) {

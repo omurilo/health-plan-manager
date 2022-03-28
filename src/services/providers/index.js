@@ -1,8 +1,8 @@
 import PlanProviders from '../../repositories/entities/providers/index.js'
 
 export default class PlanProvidersService {
-  constructor() {
-    this.providers = new PlanProviders();
+  constructor({ database }) {
+    this.providers = new PlanProviders({ database });
   }
 
   create(data) {

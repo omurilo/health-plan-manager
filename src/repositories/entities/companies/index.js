@@ -1,10 +1,8 @@
 import BaseEntity from "../base-entity.js";
 
-import Database from "../../../database/index.js";
-
 export default class Companies extends BaseEntity {
-  constructor() {
+  constructor({ database }) {
     super();
-    this.database = Database.getEntityDatabaseInstance('companies');
+    this.database = database.getEntityDatabaseInstance('companies');
   }
 }
