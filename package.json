@@ -7,10 +7,16 @@
   "scripts": {
     "start": "npx nodemon --experimental-json-modules src/index.js"
   },
-  "keywords": ["no-libraries", "nodejs", "vanilla-js", "health-plan-manager"],
+  "keywords": [
+    "no-libraries",
+    "nodejs",
+    "vanilla-js",
+    "health-plan-manager"
+  ],
   "author": "Murilo Henrique <hi@omurilo.dev>",
   "license": "MIT",
   "devDependencies": {
     "nodemon": "^2.0.15"
-  }
+  },
+  "dependencies": {}
 }
