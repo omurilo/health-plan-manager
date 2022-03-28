@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
+    "test": "node src/runTests.js",
     "start": "npx nodemon --experimental-json-modules src/index.js"
   },
   "keywords": [
