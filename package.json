@@ -17,7 +17,7 @@
   "author": "Murilo Henrique <hi@omurilo.dev>",
   "license": "MIT",
   "devDependencies": {
-    "nodemon": "^2.0.15"
-  },
-  "dependencies": {}
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
+  }
 }

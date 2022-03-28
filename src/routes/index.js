@@ -79,6 +79,7 @@ export default class Routes {
 
         const result = this.controllers.beneficiaries.create(data);
 
+        response.writeHead(201, { 'Content-Type': 'application/json' });
         return response.end(JSON.stringify(result))
       }
 
@@ -88,6 +89,7 @@ export default class Routes {
 
         const result = this.controllers.companies.create(data);
 
+        response.writeHead(201, { 'Content-Type': 'application/json' });
         return response.end(JSON.stringify(result))
       }
 
@@ -97,6 +99,7 @@ export default class Routes {
 
         const result = this.controllers.planProviders.create(data);
 
+        response.writeHead(201, { 'Content-Type': 'application/json' });
         return response.end(JSON.stringify(result))
       }
     }
