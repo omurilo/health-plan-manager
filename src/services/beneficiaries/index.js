@@ -20,7 +20,7 @@ export default class BeneficiariesService {
     }
 
     const beneficiaryPlans = providers.map(provider => {
-      ProvidersDatabase.validateProviderSchema(provider, data);
+      this.planProviders.repository.validateProviderSchema(provider, data);
 
       const item = Reflect.ownKeys(provider.schema).reduce((schema, key) => {
         schema[key] = data[key];
