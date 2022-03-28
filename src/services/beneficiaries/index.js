@@ -10,16 +10,18 @@ export default class BeneficiariesService {
   }
 
   create(data) {
-    const { plans, ...beneficiaryData } = data;
+    const { plans } = data;
     let providers;
 
     if (plans) {
-      providers = this.planProviders.find({ id: { $in: plans } });
+      const companyProviders = this.companies.get(data.company).providers;
+      const providersA = companyProviders.filter(provider => plans.includes(provider.plan));
+      providers = this.planProviders.find({ id: { $in: providersA } });
     } else {
-      providers = this.planProviders.find({ id: { $in: this.clients.get(data.company).providers } });
+      providers = this.planProviders.find({ id: { $in: this.companies.get(data.company).providers } });
     }
 
-    return providers.map(provider => {
+    const beneficiaryPlans = providers.map(provider => {
       ProvidersDatabase.validateProviderSchema(provider, data);
 
       const item = Reflect.ownKeys(provider.schema).reduce((schema, key) => {
@@ -28,11 +30,19 @@ export default class BeneficiariesService {
         return schema;
       }, {});
 
-      item.provider = provider.id;
-      item.company = data.company;
+      item.provider = provider.id
 
-      return this.beneficiaries.create(item)
+      return item;
     });
+
+    const beneficiary = {
+      name: data.name,
+      company: data.company,
+      document: data.document,
+      plans: beneficiaryPlans,
+    }
+
+    return this.beneficiaries.createOrUpdate(beneficiary);
   }
 
   get(id) {

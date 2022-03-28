@@ -8,11 +8,10 @@ export default class Beneficiaries extends BaseEntity {
     this.database = Database.getEntityDatabaseInstance('beneficiaries');
   }
 
-  findOrCreate(data) {
+  createOrUpdate(data) {
     const [beneficiary] = this.database.find({ document: data.document });
 
     if (beneficiary) {
-      console.log(beneficiary)
       this.database.instance.set(beneficiary.id, Object.assign(beneficiary, data));
 
       return this.database.instance.get(beneficiary.id);
